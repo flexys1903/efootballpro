@@ -1,169 +1,506 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eFootball Pro Market | Premium Hesap Platformu</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>GARAJ TEİAŞ // Racing HQ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#dc2626', // Yarış Kırmızısı
+                        darkBg: '#0a0b0d', // Mat Premium Siyah
+                        panelBg: '#111317' // Karbon Panel Grisi
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-carbon {
+            background-image: radial-gradient(circle at 1px 1px, #1a1d24 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .stealth-panel {
+            background: rgba(17, 19, 23, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(63, 63, 70, 0.3);
+        }
+        .input-focus:focus {
+            border-color: #dc2626;
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.15);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-darkBg text-zinc-200 font-sans antialiased bg-carbon selection:bg-brand selection:text-white">
 
-    <div class="bg-glow-1"></div>
-    <div class="bg-glow-2"></div>
+    <!-- TOP NAVIGATION -->
+    <nav class="bg-panelBg/90 backdrop-blur-md border-b border-zinc-800/80 sticky top-0 z-50 px-4 lg:px-8 shadow-xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-6 bg-brand rounded-sm"></div>
+                <span class="text-md font-black tracking-widest text-white uppercase font-mono">GARAJ <span class="text-zinc-500">TEİAŞ</span></span>
+                <span class="text-[9px] bg-zinc-900 text-zinc-400 font-mono px-2 py-0.5 rounded border border-zinc-800/80 tracking-widest">v4.0 STREAM_UNIFIED</span>
+            </div>
 
-    <nav class="navbar">
-        <div class="logo">eFootball<span>PRO</span></div>
-        <ul class="nav-links">
-            <li><a href="#home"><i class="fa-solid fa-house"></i> Ana Sayfa</a></li>
-            <li><a href="#features"><i class="fa-solid fa-circle-info"></i> Özellikler</a></li>
-            <li><a href="#process"><i class="fa-solid fa-layer-group"></i> Nasıl Çalışır?</a></li>
-            <li><a href="#about"><i class="fa-solid fa-shield-halved"></i> Hakkımızda</a></li>
-            <li><a href="#contact" class="nav-cta">Hesap Sat <i class="fa-solid fa-arrow-right"></i></a></li>
-        </ul>
+            <div class="flex items-center gap-4">
+                <button onclick="openMediaModal()" class="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-bold px-4 py-2.5 rounded-lg text-xs transition-all uppercase tracking-wider border border-zinc-800 shadow-md shadow-black/40">
+                    + MEDYA YÜKLE
+                </button>
+                <div id="authZone" class="flex items-center gap-2"></div>
+            </div>
+        </div>
     </nav>
 
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <span class="badge"><i class="fa-solid fa-bolt"></i> %100 Doğrulanmış Oyuncu Pazarı</span>
-            <h1>eFootball Hesabını <br><span class="gradient-text">Profesyonel Değere</span> Dönüştür</h1>
-            <p>Kadro değerini anında öğren, dolandırılma riski olmadan, en yüksek fiyat garantisi ve 5 dakikada ödeme avantajıyla hesabını nakite çevir.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Hemen Teklif Al <i class="fa-solid fa-coins"></i></a>
-                <a href="#process" class="btn btn-secondary">Süreci İncele</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="features" class="features-section">
-        <div class="section-title">
-            <h2>Neden Bizimle Çalışmalısınız?</h2>
-            <p>Sıradan siteleri unutun. Profesyonel altyapımızla ticaretin her aşamasında güvendesiniz.</p>
-        </div>
-        <div class="grid-container">
-            <div class="glass-card">
-                <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
-                <h3>Kurumsal Güvence</h3>
-                <p>Tüm teslimat ve devir süreçleri kayıt altında, çift taraflı güvenlik protokolü ile yürütülür.</p>
-            </div>
-            <div class="glass-card">
-                <div class="icon-box"><i class="fa-solid fa-gauge-high"></i></div>
-                <h3>Anlık Ekspertiz</h3>
-                <p>Gönderdiğiniz kadrolar güncel meta oyuncularına göre anında fiyatlandırılır.</p>
-            </div>
-            <div class="glass-card">
-                <div class="icon-box"><i class="fa-solid fa-money-bill-transfer"></i></div>
-                <h3>Yıldırım Hızında Ödeme</h3>
-                <p>Hesap bilgileri doğrulandığı an, paranız belirttiğiniz IBAN adresine 5 dakika içinde transfer edilir.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="process" class="process-section">
-        <div class="section-title">
-            <h2>3 Adımda Kolay Satış</h2>
-            <p>Zamanınız değerli, bu yüzden süreci en hızlı hale getirdik.</p>
-        </div>
-        <div class="process-flow">
-            <div class="process-card">
-                <div class="badge-num">01</div>
-                <h3>Formu Doldur</h3>
-                <p>Aşağıdaki profesyonel forma kadro detaylarını gir ve en iyi ekran görüntüsünü yükle.</p>
-            </div>
-            <div class="arrow-divider"><i class="fa-solid fa-chevron-right"></i></div>
-            <div class="process-card">
-                <div class="badge-num">02</div>
-                <h3>Fiyat Al</h3>
-                <p>Uzman ekibimiz e-posta veya Instagram üzerinden sana piyasanın en iyi teklifini sunsun.</p>
-            </div>
-            <div class="arrow-divider"><i class="fa-solid fa-chevron-right"></i></div>
-            <div class="process-card">
-                <div class="badge-num">03</div>
-                <h3>Paranı Al</h3>
-                <p>Güvenli devir sonrasında paran anında hesabına geçsin. İşte bu kadar basit!</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="about-glass">
-            <div class="about-text">
-                <h2>Sanal Sahaların En Güvenilir Pazar Yeri</h2>
-                <p>eFootball PRO, eFootball topluluğundaki oyuncuların mağduriyet yaşamasını engellemek amacıyla kurulmuş, vizyoner bir dijital varlık yönetim platformudur.</p>
-                <p>Bugüne kadar yüzlerce başarılı transfere imza atmış ekibimizle, sadece hesap alıp satmıyor; topluluğa güven aşılıyoruz.</p>
-                <div class="stats">
-                    <div class="stat-item"><span>500+</span><p>Başarılı İşlem</p></div>
-                    <div class="stat-item"><span>5 Dk</span><p>Ort. İşlem Süresi</p></div>
-                    <div class="stat-item"><span>1903%</span><p>Güven ve Sadakat</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <div class="contact-wrapper">
+    <!-- ANA DASHBOARD DÜZENİ -->
+    <main class="max-w-7xl mx-auto px-4 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             
-            <div class="contact-meta">
-                <h2>Bir Sonraki Adımı Atın</h2>
-                <p>Sorularınız için doğrudan yönetim ekibimizle veya kurucumuzla iletişime geçebilirsiniz.</p>
-                
-                <div class="meta-boxes">
-                    <a href="https://instagram.com/utku.ss" target="_blank" class="insta-premium-btn">
-                        <i class="fab fa-instagram"></i> @utku.ss
-                    </a>
-                    <div class="mail-premium-box">
-                        <i class="fa-solid fa-envelope-open-text"></i> flexys1903@gmail.com
+            <!-- SOL PANEL -->
+            <aside class="space-y-6">
+                <!-- Profil Kartı -->
+                <div class="stealth-panel rounded-xl p-5 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-zinc-800/10 rotate-45 translate-x-12 -translate-y-12 border border-zinc-700/20"></div>
+                    <p class="text-[10px] font-mono text-zinc-500 mb-4 uppercase tracking-widest border-b border-zinc-800/60 pb-1">TELEMETRİ MERKEZİ</p>
+                    <div id="userInfo"></div>
+                </div>
+
+                <!-- Odalar Menüsü (Düz Tek Kategori) -->
+                <div class="stealth-panel rounded-xl p-3 space-y-1 shadow-2xl">
+                    <p class="text-[10px] font-mono text-zinc-500 px-3 mb-3 uppercase tracking-widest">KANAL LİSTESİ</p>
+                    <div class="w-full flex items-center justify-between px-3 py-3 rounded-lg bg-zinc-900 text-white text-xs font-bold tracking-wider text-left border-l-2 border-brand">
+                        <span>🌐 GENEL AKIŞ (ALL)</span>
                     </div>
                 </div>
-            </div>
+            </aside>
 
-            <div class="form-glass-box">
-                <h3>Hesap Ekspertiz Formu</h3>
-                <p>Bilgileri girerek doğrudan kurumsal mail adresimize verileri iletebilirsiniz.</p>
-                
-                <form action="https://formsubmit.co/flexys1903@gmail.com" method="POST" enctype="multipart/form-data">
-                    
-                    <input type="hidden" name="_captcha" value="false">
+            <!-- SAĞ KISIM -->
+            <section class="col-span-1 lg:col-span-3 space-y-6">
+                <div id="feedContainer" class="space-y-6"></div>
 
-                    <div class="form-row">
-                        <div class="input-container">
-                            <label>Adınız Soyadınız</label>
-                            <input type="text" name="Müşteri Ad Soyad" required placeholder="Utku">
-                        </div>
-                        <div class="input-container">
-                            <label>E-Posta Adresiniz</label>
-                            <input type="email" name="Müşteri E-Posta" required placeholder="örnek@gmail.com">
-                        </div>
-                    </div>
-
-                    <div class="input-container">
-                        <label>Instagram Kullanıcı Adınız</label>
-                        <input type="text" name="Instagram Adresi" placeholder="@kullaniciadiniz">
-                    </div>
-
-                    <div class="input-container">
-                        <label>Hesap Detayları (Önemli Oyuncular ve Öne Çıkanlar)</label>
-                        <textarea name="Hesap Detayları" rows="4" required placeholder="Örn: 105 Destansı Neymar, Big Time Messi, 2000 Altın Para mevcut..."></textarea>
-                    </div>
-
-                    <div class="input-container file-upload">
-                        <label for="file-input" class="custom-file-label">
-                            <i class="fa-solid fa-cloud-arrow-up"></i> Kadro Ekran Görüntüsü Yükle
-                        </label>
-                        <input type="file" id="file-input" name="Kadro Görseli" accept="image/*" required>
-                    </div>
-
-                    <button type="submit" class="premium-submit-btn">Analiz Et ve Formu Gönder</button>
-                </form>
-            </div>
-
+                <!-- Siber Güvenlik Konsolu Raporu -->
+                <div id="securityLog" class="p-4 bg-zinc-950/80 border border-zinc-900 rounded-xl font-mono text-[11px] text-zinc-500 tracking-wide">
+                    [SYSTEM] Siber duvar denetimi bekleniyor...
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
 
-    <footer>
-        <p>&copy; 2026 eFootball PRO Market. Tüm Hakları Saklıdır. | Gücümüz Asaletimizden!</p>
-    </footer>
+    <!-- MODAL: GİRİŞ YAP & KAYIT OL -->
+    <div id="authModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="stealth-panel bg-panelBg w-full max-w-md rounded-xl p-6 border border-zinc-800 shadow-2xl">
+            <div class="flex justify-between items-center mb-6 border-b border-zinc-800 pb-3">
+                <h3 id="modalTitle" class="text-xs font-black tracking-widest text-white font-mono uppercase">SİSTEME BAĞLAN</h3>
+                <button onclick="closeAuthModal()" class="text-zinc-500 hover:text-white transition text-xl font-mono">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-mono text-zinc-400 mb-1.5 uppercase tracking-wider">Kullanıcı Adı</label>
+                    <input type="text" id="authUsername" placeholder="Örn: utku" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none input-focus text-white font-mono">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-mono text-zinc-400 mb-1.5 uppercase tracking-wider">Şifre</label>
+                    <div class="relative">
+                        <input type="password" id="authPassword" placeholder="••••••••" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-4 pr-12 py-3 text-sm focus:outline-none input-focus text-white font-mono">
+                        <button type="button" onclick="togglePasswordVisibility('authPassword', 'authPasswordEye')" class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 text-sm focus:outline-none transition-all">
+                            <span id="authPasswordEye">👁️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="pt-2">
+                    <button onclick="submitAuth()" id="modalSubmitBtn" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3.5 rounded-lg text-xs uppercase tracking-widest transition-all">YETKİ AL (LOGIN)</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- MODAL: YENİ GÖNDERİ -->
+    <div id="mediaModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="stealth-panel bg-panelBg w-full max-w-lg rounded-xl p-6 border border-zinc-800 shadow-2xl">
+            <div class="flex justify-between items-center mb-6 border-b border-zinc-800 pb-3">
+                <h3 class="text-xs font-black tracking-widest text-white font-mono uppercase">YENİ TELEMETRİ GÖNDERİSİ</h3>
+                <button onclick="closeMediaModal()" class="text-zinc-500 hover:text-white transition text-xl font-mono">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-mono text-zinc-400 mb-1.5 uppercase tracking-wider">Gönderi Başlığı / Setup Detayı</label>
+                    <input type="text" id="postTitle" placeholder="Örn: BMW E92 setup paylaşıyorum kanka" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none input-focus text-white">
+                </div>
+                
+                <div>
+                    <label class="block text-[10px] font-mono text-zinc-400 mb-1.5 uppercase tracking-wider">Cihazdan Resim Seç</label>
+                    <div class="flex items-center justify-center w-full">
+                        <label for="postFile" class="flex flex-col items-center justify-center w-full h-32 border-2 border-zinc-800 border-dashed rounded-lg cursor-pointer bg-zinc-950/50 hover:bg-zinc-950 hover:border-zinc-700 transition-all">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <span class="text-2xl mb-1">📁</span>
+                                <p id="postFileLabel" class="text-xs text-zinc-400 font-mono text-center px-4">Resim dosyası seç veya buraya sürükle</p>
+                                <p class="text-[9px] text-zinc-600 font-mono mt-1">PNG, JPG, JPEG (Max: 4MB)</p>
+                            </div>
+                            <input id="postFile" type="file" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'postFileLabel', 'postImgBase64')" />
+                        </label>
+                    </div>
+                    <input type="hidden" id="postImgBase64" value="">
+                </div>
+
+                <div class="pt-2">
+                    <button onclick="submitPost()" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3.5 rounded-lg text-xs uppercase tracking-widest transition-all">HATTA YAYINLA (SHARE)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: PROFİL DÜZENLEME -->
+    <div id="profileModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="stealth-panel bg-panelBg w-full max-w-md rounded-xl p-6 border border-zinc-800 shadow-2xl">
+            <div class="flex justify-between items-center mb-6 border-b border-zinc-800 pb-3">
+                <h3 class="text-xs font-black tracking-widest text-white font-mono uppercase">PROFİLİ GÜNCELLE</h3>
+                <button onclick="closeProfileModal()" class="text-zinc-500 hover:text-white transition text-xl font-mono">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-mono text-zinc-400 mb-1.5 uppercase tracking-wider">Yeni Profil Resmi Seç</label>
+                    <div class="flex items-center justify-center w-full">
+                        <label for="profileFile" class="flex flex-col items-center justify-center w-full h-24 border-2 border-zinc-800 border-dashed rounded-lg cursor-pointer bg-zinc-950/50 hover:bg-zinc-950 hover:border-zinc-700 transition-all">
+                            <div class="flex flex-col items-center justify-center pt-3 pb-4">
+                                <span class="text-xl mb-0.5">📸</span>
+                                <p id="profileFileLabel" class="text-xs text-zinc-400 font-mono">Yeni avatar görseli seç kanka</p>
+                            </div>
+                            <input id="profileFile" type="file" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'profileFileLabel', 'profileAvatarBase64')" />
+                        </label>
+                    </div>
+                    <input type="hidden" id="profileAvatarBase64" value="">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-mono text-zinc-400 mb-1.5 uppercase tracking-wider">Yeni Şifre</label>
+                    <div class="relative">
+                        <input type="password" id="editPassword" placeholder="Değiştirmek istemiyorsan boş bırak reis" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-4 pr-12 py-3 text-sm focus:outline-none input-focus text-white font-mono">
+                        <button type="button" onclick="togglePasswordVisibility('editPassword', 'editPasswordEye')" class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 text-sm focus:outline-none transition-all">
+                            <span id="editPasswordEye">👁️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="pt-2">
+                    <button onclick="submitProfileUpdate()" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3.5 rounded-lg text-xs uppercase tracking-widest transition-all">DEĞİŞİKLİKLERİ MÜHÜRLE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT ENGINE -->
+    <script>
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);                    
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        const defaultAvatar = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2371717a'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>";
+        
+        const ADMIN_USERNAME = "1 9 0 3";
+        const MY_SCREEN_WIDTH = 1600; 
+        const MY_SCREEN_HEIGHT = 900;
+        const MY_ALLOWED_IP = "85.107.100.91";
+
+        let userDetectedIP = "Sorgulanıyor...";
+        let isRegisterMode = false;
+
+        const defaultPosts = [
+            {
+                id: 1717500000000,
+                username: "1903",
+                title: "BMW E92 - HELLCAT V8 SWAP // GARAJ AKIŞ BAŞLADI",
+                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200&auto=format&fit=crop",
+                voltage: 1903,
+                time: "06.06.2026"
+            }
+        ];
+
+        let backupPosts = [...defaultPosts];
+        let backupUsers = {
+            "utku": { password: "4a7d1a719d280e550e0d5c07452d5efbfb534e7cb8a99b4ff4e626bf450f3f2d", avatar: defaultAvatar },
+            "1903": { password: "4a7d1a719d280e550e0d5c07452d5efbfb534e7cb8a99b4ff4e626bf450f3f2d", avatar: defaultAvatar }
+        };
+
+        if(!localStorage.getItem('garaj_posts_db')) {
+            localStorage.setItem('garaj_posts_db', JSON.stringify(defaultPosts));
+        } else {
+            backupPosts = JSON.parse(localStorage.getItem('garaj_posts_db'));
+        }
+        
+        if(!localStorage.getItem('garaj_users_db')) {
+            localStorage.setItem('garaj_users_db', JSON.stringify(backupUsers));
+        } else {
+            backupUsers = JSON.parse(localStorage.getItem('garaj_users_db'));
+        }
+
+        let posts = JSON.parse(localStorage.getItem('garaj_posts_db'));
+
+        // STORAGE MANİPÜLASYON KORUMASI
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'garaj_posts_db' || e.key === 'garaj_users_db') {
+                localStorage.setItem('garaj_posts_db', JSON.stringify(backupPosts));
+                localStorage.setItem('garaj_users_db', JSON.stringify(backupUsers));
+                posts = [...backupPosts];
+                renderFeed();
+                renderAuthUI();
+            }
+        });
+
+        function syncBackup() {
+            backupPosts = JSON.parse(localStorage.getItem('garaj_posts_db'));
+            backupUsers = JSON.parse(localStorage.getItem('garaj_users_db'));
+        }
+
+        function handleFileSelect(input, labelId, hiddenInputId) {
+            const file = input.files[0];
+            const label = document.getElementById(labelId);
+            const hiddenInput = document.getElementById(hiddenInputId);
+            if (!file) return;
+            if (file.size > 4 * 1024 * 1024) { alert("Maksimum 4MB!"); input.value = ""; return; }
+            label.innerText = `⏳ İşleniyor...`;
+            const reader = new FileReader();
+            reader.onload = function (e) { hiddenInput.value = e.target.result; label.innerText = `✅ Seçildi`; };
+            reader.readAsDataURL(file);
+        }
+
+        function togglePasswordVisibility(inputId, eyeId) {
+            const input = document.getElementById(inputId);
+            const eye = document.getElementById(eyeId);
+            if (input.type === "password") { input.type = "text"; eye.innerText = "🙈"; } 
+            else { input.type = "password"; eye.innerText = "👁️"; }
+        }
+
+        async function fetchUserIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                userDetectedIP = data.ip.trim(); 
+            } catch (err) { userDetectedIP = "IP_ALINAMADI"; }
+            init();
+        }
+
+        function init() { renderAuthUI(); renderFeed(); }
+
+        function isHardwareVerified() {
+            return (window.screen.width === MY_SCREEN_WIDTH && window.screen.height === MY_SCREEN_HEIGHT && userDetectedIP === MY_ALLOWED_IP.trim());
+        }
+
+        function renderAuthUI() {
+            const authZone = document.getElementById('authZone');
+            const userInfo = document.getElementById('userInfo');
+            const currentUser = localStorage.getItem('garaj_active_user') || null;
+            const logPanel = document.getElementById('securityLog');
+            const usersDb = JSON.parse(localStorage.getItem('garaj_users_db'));
+
+            if(currentUser) {
+                const isUtku = (currentUser.toLowerCase() === ADMIN_USERNAME.toLowerCase());
+                const isAdminVerified = isUtku && isHardwareVerified();
+                const userAvatar = (usersDb[currentUser] && usersDb[currentUser].avatar) ? usersDb[currentUser].avatar : defaultAvatar;
+
+                authZone.innerHTML = `
+                    <span class="text-xs font-bold ${isUtku ? 'text-brand' : 'text-zinc-400'} font-mono">${currentUser}${isAdminVerified ? ' [ROOT]' : ''}</span>
+                    <button onclick="logout()" class="text-[11px] text-zinc-500 hover:text-brand transition font-mono uppercase tracking-wider ml-2">Mola Ver</button>
+                `;
+
+                userInfo.innerHTML = `
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="${userAvatar}" class="w-11 h-11 rounded border ${isUtku ? 'border-brand' : 'border-zinc-700'} object-cover">
+                        <div>
+                            <p class="font-bold text-white text-sm font-mono tracking-wide">@${currentUser}</p>
+                            <p class="text-[9px] font-mono ${isUtku ? 'text-brand' : 'text-zinc-500'} mt-1 tracking-widest flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 ${isAdminVerified ? 'bg-brand animate-pulse' : 'bg-emerald-500'} rounded-full inline-block"></span> 
+                                ${isAdminVerified ? 'SYSTEM_ROOT_ACTIVE' : 'LINK_ACTIVE'}
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="openProfileModal()" class="w-full bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white text-[11px] font-bold py-2 px-3 rounded-lg border border-zinc-800 transition-all font-mono uppercase tracking-wider text-center block">
+                        ⚙️ PROFİLİ DÜZENLE
+                    </button>
+                `;
+
+                if (isUtku) {
+                    if (isHardwareVerified()) {
+                        logPanel.innerHTML = `[SUCCESS] ROOT Onaylandı. IP: ${userDetectedIP} • Siber Kalkan: AKTİF • Veri Koruma: SHA-256`;
+                        logPanel.style.color = '#00ff00';
+                    } else {
+                        logPanel.innerHTML = `[ALERT] Donanım/IP Eşleşmiyor! IP: ${userDetectedIP} • Ekran: ${window.screen.width}x${window.screen.height}`;
+                        logPanel.style.color = '#ff3333';
+                    }
+                } else {
+                    logPanel.innerHTML = `[INFO] Standart kullanıcı @${currentUser} bağlı. Tek akış devrede.`;
+                    logPanel.style.color = '#888';
+                }
+            } else {
+                authZone.innerHTML = `
+                    <button onclick="openAuthModal(false)" class="border border-zinc-800 hover:border-zinc-600 text-zinc-300 px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 font-mono uppercase tracking-wider">BAĞLAN</button>
+                    <button onclick="openAuthModal(true)" class="bg-brand hover:bg-red-700 text-white px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 font-mono uppercase tracking-wider shadow-lg shadow-brand/10">KAYIT OL</button>
+                `;
+                userInfo.innerHTML = `<p class="text-zinc-600 text-[11px] font-mono tracking-wider">DISCONNECTED // NO_AUTH</p>`;
+                logPanel.innerHTML = `[SYSTEM] Misafir modu. Tek kategori akışı aktif.`;
+                logPanel.style.color = '#555';
+            }
+        }
+
+        function renderFeed() {
+            const container = document.getElementById('feedContainer');
+            container.innerHTML = "";
+            const usersDb = JSON.parse(localStorage.getItem('garaj_users_db'));
+
+            if(posts.length === 0) {
+                container.innerHTML = `<div class="stealth-panel rounded-xl p-12 text-center text-zinc-500 font-mono text-xs tracking-wider">⚠️ GARAJ AKIŞINDA MEDYA BULUNAMADI. İLK SEN PAYLAŞ KANKA!</div>`;
+                return;
+            }
+
+            const currentUser = localStorage.getItem('garaj_active_user') || '';
+            const isUserAdmin = (currentUser.toLowerCase() === ADMIN_USERNAME.toLowerCase() && isHardwareVerified());
+
+            [...posts].reverse().forEach(post => {
+                const deleteButtonHTML = isUserAdmin 
+                    ? `<button onclick="deletePost(${post.id})" class="text-[9px] font-mono bg-brand/10 hover:bg-brand text-brand hover:text-white border border-brand/30 px-2 py-1 rounded transition-all tracking-wider uppercase font-bold">DELETE // SİL</button>` 
+                    : '';
+                const currentPostAvatar = (usersDb[post.username] && usersDb[post.username].avatar) ? usersDb[post.username].avatar : defaultAvatar;
+
+                container.innerHTML += `
+                    <div class="stealth-panel rounded-xl overflow-hidden shadow-2xl transition-all duration-300 hover:border-zinc-700/60">
+                        <div class="p-4 flex items-center justify-between bg-zinc-950/40 border-b border-zinc-900">
+                            <div class="flex items-center gap-3">
+                                <img src="${currentPostAvatar}" class="w-8 h-8 rounded object-cover border border-zinc-800">
+                                <div>
+                                    <h4 class="text-xs font-bold text-white font-mono tracking-wide">@${post.username}</h4>
+                                    <span class="text-[10px] text-zinc-500 font-mono">${post.time}</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                ${deleteButtonHTML}
+                                <span class="text-[10px] font-mono bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-md text-zinc-500 font-bold tracking-widest uppercase">MEDYA</span>
+                            </div>
+                        </div>
+                        <div class="relative bg-zinc-950 overflow-hidden border-b border-zinc-900">
+                            <img src="${post.img}" class="w-full object-cover max-h-[480px]">
+                            <div class="p-4 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent pt-12">
+                                <p class="text-base font-bold tracking-wide text-white uppercase font-mono">${post.title}</p>
+                            </div>
+                        </div>
+                        <div class="p-3.5 flex items-center gap-5 text-zinc-400 bg-zinc-950/20">
+                            <button onclick="giveVoltage(${post.id})" class="hover:text-brand flex items-center gap-1.5 transition text-zinc-300 font-mono text-xs font-bold tracking-wider uppercase">
+                                <span class="text-amber-500">⚡</span> <span>${post.voltage} HP</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function openMediaModal() {
+            const currentUser = localStorage.getItem('garaj_active_user');
+            if(!currentUser) { alert("Önce sisteme bağlanman gerekiyor kanka!"); openAuthModal(false); return; }
+            document.getElementById('postTitle').value = ""; document.getElementById('postFile').value = ""; document.getElementById('postImgBase64').value = "";
+            document.getElementById('postFileLabel').innerText = "Resim dosyası seç veya buraya sürükle";
+            document.getElementById('mediaModal').style.display = 'flex';
+        }
+        function closeMediaModal() { document.getElementById('mediaModal').style.display = 'none'; }
+
+        function submitPost() {
+            const title = document.getElementById('postTitle').value.trim();
+            const imgBase64 = document.getElementById('postImgBase64').value;
+            const currentUser = localStorage.getItem('garaj_active_user') || 'Ziyaretçi';
+            if(!title || !imgBase64) { alert("Başlık ve Dosya seçimi zorunlu kanka!"); return; }
+
+            posts.push({ id: Date.now(), username: currentUser, title: title, img: imgBase64, voltage: 0, time: new Date().toLocaleDateString('tr-TR') });
+            try { localStorage.setItem('garaj_posts_db', JSON.stringify(posts)); syncBackup(); } 
+            catch (e) { alert("Resim boyutu çok büyük!"); return; }
+            closeMediaModal(); renderFeed();
+        }
+
+        function openProfileModal() {
+            const currentUser = localStorage.getItem('garaj_active_user'); if(!currentUser) return;
+            document.getElementById('profileFile').value = ""; document.getElementById('profileAvatarBase64').value = "";
+            document.getElementById('profileFileLabel').innerText = "Yeni avatar görseli seç kanka"; document.getElementById('editPassword').value = '';
+            document.getElementById('editPassword').type = "password"; document.getElementById('editPasswordEye').innerText = "👁️";
+            document.getElementById('profileModal').style.display = 'flex';
+        }
+        function closeProfileModal() { document.getElementById('profileModal').style.display = 'none'; }
+
+        async function submitProfileUpdate() {
+            const currentUser = localStorage.getItem('garaj_active_user'); if(!currentUser) return;
+            let usersDb = JSON.parse(localStorage.getItem('garaj_users_db'));
+            const newAvatarBase64 = document.getElementById('profileAvatarBase64').value;
+            const newPass = document.getElementById('editPassword').value.trim();
+
+            if(newAvatarBase64) { usersDb[currentUser].avatar = newAvatarBase64; }
+            if(newPass) { usersDb[currentUser].password = await sha256(newPass); }
+
+            try { localStorage.setItem('garaj_users_db', JSON.stringify(usersDb)); syncBackup(); } 
+            catch (e) { alert("Hata oluştu!"); return; }
+            alert("Profil başarıyla güncellendi!"); closeProfileModal(); init();
+        }
+
+        function openAuthModal(registerMode = false) {
+            isRegisterMode = registerMode; document.getElementById('authModal').style.display = 'flex';
+            const title = document.getElementById('modalTitle'); const btn = document.getElementById('modalSubmitBtn');
+            document.getElementById('authPassword').type = "password"; document.getElementById('authPasswordEye').innerText = "👁️";
+            document.getElementById('authUsername').value = ""; document.getElementById('authPassword').value = "";
+            
+            if(isRegisterMode) {
+                title.innerText = "YENİ SÜRÜCÜ KAYDI"; btn.innerText = "HESAP OLUŞTUR (REGISTER)";
+                btn.className = "w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-lg text-xs uppercase tracking-widest transition-all";
+            } else {
+                title.innerText = "SİSTEME BAĞLAN"; btn.innerText = "YETKİ AL (LOGIN)";
+                btn.className = "w-full bg-brand hover:bg-red-700 text-white font-bold py-3.5 rounded-lg text-xs uppercase tracking-widest transition-all";
+            }
+        }
+        function closeAuthModal() { document.getElementById('authModal').style.display = 'none'; }
+
+        async function submitAuth() {
+            const user = document.getElementById('authUsername').value.trim();
+            const pass = document.getElementById('authPassword').value.trim();
+            let usersDb = JSON.parse(localStorage.getItem('garaj_users_db'));
+
+            if(!user || !pass) { alert("Alanları doldur kanka!"); return; }
+            const hashedPass = await sha256(pass);
+
+            if(isRegisterMode) {
+                if(usersDb[user]) { alert("Bu kullanıcı adı zaten alınmış!"); return; }
+                usersDb[user] = { password: hashedPass, avatar: defaultAvatar };
+                localStorage.setItem('garaj_users_db', JSON.stringify(usersDb));
+                syncBackup();
+                alert("Kayıt başarılı! Giriş yapabilirsin.");
+                openAuthModal(false);
+            } else {
+                if(usersDb[user] && (usersDb[user].password === hashedPass || usersDb[user] === hashedPass)) {
+                    localStorage.setItem('garaj_active_user', user);
+                    closeAuthModal();
+                    init();
+                } else {
+                    alert("❌ Kullanıcı adı veya şifre hatalı!");
+                }
+            }
+        }
+
+        function deletePost(postId) {
+            const currentUser = localStorage.getItem('garaj_active_user') || '';
+            if (!isHardwareVerified() || currentUser.toLowerCase() !== ADMIN_USERNAME.toLowerCase()) { 
+                alert("❌ ACCESS DENIED: Güvenlik duvarı engeli!"); return; 
+            }
+            if (confirm("Silmek istediğinize emin misiniz?")) {
+                posts = posts.filter(p => p.id !== postId);
+                localStorage.setItem('garaj_posts_db', JSON.stringify(posts));
+                syncBackup(); renderFeed();
+            }
+        }
+
+        function giveVoltage(postId) {
+            const post = posts.find(p => p.id === postId);
+            if(post) { post.voltage += 1; localStorage.setItem('garaj_posts_db', JSON.stringify(posts)); syncBackup(); renderFeed(); }
+        }
+
+        function logout() { localStorage.removeItem('garaj_active_user'); init(); }
+        window.onload = fetchUserIP;
+    </script>
 </body>
 </html>
